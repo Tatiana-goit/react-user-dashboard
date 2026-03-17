@@ -1,0 +1,76 @@
+.sidebar {
+  width: 72px;
+  min-height: 100vh;
+  background: #fff;
+  border-right: 1px solid #eef0f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 0 20px;
+  width: 100%;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 0;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 32px;
+}
+
+/* Base icon: small thin outlined rectangle */
+.icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1.5px solid #d1d5db;
+  background: transparent;
+}
+
+.iconAdd {
+  border: none;
+  background: #e6f5ee;
+  position: relative;
+
+  /* simple "+" hint via box-shadow cross */
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background: #2d8f5f;
+    border-radius: 2px;
+  }
+
+  &::before {
+    width: 12px;
+    height: 2px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &::after {
+    width: 2px;
+    height: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

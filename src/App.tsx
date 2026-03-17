@@ -1,8 +1,12 @@
 
-import { CandidatesPage } from './pages/CandidatesPage'
+import { AppLayout } from './components/layout/AppLayout/AppLayout'
 
 function App() {
-  return <CandidatesPage />
+  return (
+    <AppLayout>
+      <p>Content area</p>
+    </AppLayout>
+  )
 }
 
 export default App
