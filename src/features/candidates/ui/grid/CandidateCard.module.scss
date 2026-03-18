@@ -1,10 +1,11 @@
 .card {
   border-radius: 16px;
-  overflow: hidden;
+  /* overflow: visible — needed so ContextMenu is not clipped by the card boundary */
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 /* ── Top gradient section ── */
@@ -14,8 +15,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
   min-height: 160px;
+  border-radius: 16px 16px 0 0;
+  overflow: visible;
 }
 
 .topRow {
@@ -32,7 +34,9 @@
   gap: 5px;
   padding: 4px 9px;
   border-radius: 20px;
-  border: 1px solid;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
   font-size: 0.7rem;
   font-weight: 600;
   line-height: 1;
@@ -41,6 +45,10 @@
 .topActions {
   display: flex;
   gap: 4px;
+}
+
+.menuWrap {
+  position: static;
 }
 
 .actionBtn {
@@ -60,16 +68,19 @@
   }
 }
 
-/* Avatar — sits at the bottom of the green section, half-overlapping the white section */
+/* Avatar sits in the lower part of the green section */
 .avatarWrap {
   margin-top: auto;
+  margin-bottom: 6px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: 3px solid rgba(255, 255, 255, 0.6);
+  border: 3px solid rgba(255, 255, 255, 0.7);
   overflow: hidden;
-  background: #d1d5db;
+  background: #c9d4ce;
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .avatar {
@@ -87,25 +98,26 @@
   font-size: 1.75rem;
   font-weight: 700;
   color: #fff;
-  background: rgba(255, 255, 255, 0.2);
+  background: #4a8f6d;
 }
 
-/* Label badge overlaps the boundary between top/bottom sections */
+/* Label badge at the bottom edge of green section, peeks into white */
 .labelBadge {
-  margin-top: 8px;
-  margin-bottom: -12px;
+  margin-bottom: -13px;
   padding: 4px 16px;
   border-radius: 20px;
   background: #2d8f5f;
   color: #fff;
   font-size: 0.7rem;
   font-weight: 600;
+  position: relative;
   z-index: 1;
 }
 
 /* ── Bottom white section ── */
 .cardBody {
-  padding: 24px 16px 16px;
+  border-radius: 0 0 16px 16px;
+  padding: 20px 16px 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -141,6 +153,18 @@
   fill: #d1d5db;
 }
 
+.starHalfWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.starHalf {
+  position: absolute;
+  color: #f59e0b;
+  fill: #f59e0b;
+  clip-path: inset(0 50% 0 0);
+}
+
 /* Stats row */
 .stats {
   display: flex;
@@ -170,16 +194,15 @@
   width: 100%;
   padding: 10px;
   border-radius: 10px;
-  border: 1.5px solid #2d8f5f;
-  background: transparent;
-  color: #2d8f5f;
+  border: none;
+  background: #2d8f5f;
+  color: #fff;
   font-size: 0.825rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s;
 
   &:hover {
-    background: #2d8f5f;
-    color: #fff;
+    background: #236b48;
   }
 }

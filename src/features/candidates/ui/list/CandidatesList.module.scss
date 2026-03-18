@@ -1,0 +1,52 @@
+.wrap {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #f3f4f6;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.headerRow {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.checkTh {
+  width: 44px;
+  padding: 11px 0 11px 16px;
+}
+
+.checkbox {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  accent-color: #2d8f5f;
+}
+
+.th {
+  padding: 11px 16px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #9ca3af;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.thInner {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+
+  &:hover {
+    color: #374151;
+  }
+}
+
+.sortIcon {
+  opacity: 0.5;
+}

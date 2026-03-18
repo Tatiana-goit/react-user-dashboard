@@ -1,6 +1,6 @@
 import { CandidateCard } from './CandidateCard'
 import styles from './CandidatesGrid.module.scss'
-import type { Candidate } from '../../types/candidate'
+import type { Candidate } from '../../../../types/candidate'
 
 interface CandidatesGridProps {
   candidates: Candidate[]

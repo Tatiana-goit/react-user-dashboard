@@ -1,6 +1,9 @@
+import { useAppSelector } from '../../../app/hooks'
+import { selectAllCandidates } from '../../../features/candidates/store'
 import styles from './Header.module.scss'
 
 export function Header() {
+  const count = useAppSelector(selectAllCandidates).length
   return (
     <header className={styles.header}>
       {/* Top bar: breadcrumb left, action icons right */}
@@ -18,7 +21,9 @@ export function Header() {
       {/* Title */}
       <div className={styles.titleRow}>
         <span className={styles.titleText}>Candidates</span>
-        <span className={styles.titleBadge} />
+        {count !== undefined && (
+          <span className={styles.titleBadge}>{count}</span>
+        )}
       </div>
 
       {/* Nav tabs */}

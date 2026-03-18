@@ -1,0 +1,38 @@
+.menu {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  z-index: 10;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 8px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #111827;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  font-weight: 400;
+
+  &:hover {
+    background: #f9fafb;
+  }
+}
+
+.icon {
+  color: #374151;
+  flex-shrink: 0;
+}

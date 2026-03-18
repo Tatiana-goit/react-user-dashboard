@@ -5,9 +5,10 @@ import styles from './Toolbar.module.scss'
 interface ToolbarProps {
   viewMode: ViewMode
   onViewChange: (mode: ViewMode) => void
+  activeCount: number
 }
 
-export function Toolbar({ viewMode, onViewChange }: ToolbarProps) {
+export function Toolbar({ viewMode, onViewChange, activeCount }: ToolbarProps) {
   return (
     <div className={styles.toolbar}>
       <span className={styles.search}>
@@ -17,11 +18,11 @@ export function Toolbar({ viewMode, onViewChange }: ToolbarProps) {
       <div className={styles.statusTabs}>
         <div className={`${styles.statusTab} ${styles.statusTabActive}`}>
           <span className={styles.statusTabText}>Active</span>
-          <span className={styles.statusTabCount}>8</span>
+          <span className={styles.statusTabCount}>{activeCount}</span>
         </div>
         <div className={styles.statusTab}>
           <span className={styles.statusTabText}>Archived</span>
-          <span className={styles.statusTabCount}>8</span>
+          <span className={styles.statusTabCount}>0</span>
         </div>
       </div>
 

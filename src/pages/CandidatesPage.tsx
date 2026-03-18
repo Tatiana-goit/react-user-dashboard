@@ -3,22 +3,32 @@ import { useAppDispatch, useAppSelector } from '../app/hooks'
 import {
   fetchCandidates,
   setViewMode,
+  setCurrentPage,
   selectLoading,
   selectError,
   selectViewMode,
+  selectCurrentPage,
+  selectTotalPages,
+  selectItemsPerPage,
+  selectAllCandidates,
   selectPaginatedCandidates,
 } from '../features/candidates/store'
-import { CandidatesGrid } from '../features/candidates/ui'
+import { CandidatesGrid, CandidatesList } from '../features/candidates/ui'
 import { Toolbar } from '../components/layout/Toolbar/Toolbar'
+import { Pagination } from '../components/layout/Pagination/Pagination'
 import type { ViewMode } from '../types/candidate'
 import styles from './CandidatesPage.module.scss'
 
 export function CandidatesPage() {
-  const dispatch   = useAppDispatch()
-  const loading    = useAppSelector(selectLoading)
-  const error      = useAppSelector(selectError)
-  const viewMode   = useAppSelector(selectViewMode)
-  const candidates = useAppSelector(selectPaginatedCandidates)
+  const dispatch     = useAppDispatch()
+  const loading      = useAppSelector(selectLoading)
+  const error        = useAppSelector(selectError)
+  const viewMode     = useAppSelector(selectViewMode)
+  const currentPage  = useAppSelector(selectCurrentPage)
+  const totalPages   = useAppSelector(selectTotalPages)
+  const itemsPerPage = useAppSelector(selectItemsPerPage)
+  const allCandidates = useAppSelector(selectAllCandidates)
+  const candidates   = useAppSelector(selectPaginatedCandidates)
 
   useEffect(() => {
     dispatch(fetchCandidates())
@@ -28,9 +38,23 @@ export function CandidatesPage() {
     dispatch(setViewMode(mode))
   }
 
+  function handlePageChange(page: number) {
+    dispatch(setCurrentPage(page))
+  }
+
+  const showContent = !loading && !error && candidates.length > 0
+
+  const paginationProps = {
+    currentPage,
+    totalPages,
+    totalItems: allCandidates.length,
+    itemsPerPage,
+    onPageChange: handlePageChange,
+  }
+
   return (
     <div className={styles.page}>
-      <Toolbar viewMode={viewMode} onViewChange={handleViewChange} />
+      <Toolbar viewMode={viewMode} onViewChange={handleViewChange} activeCount={allCandidates.length} />
 
       {loading && <div className={styles.state}>Loading...</div>}
 
@@ -40,15 +64,17 @@ export function CandidatesPage() {
         <div className={styles.state}>No candidates found.</div>
       )}
 
-      {!loading && !error && candidates.length > 0 && viewMode === 'grid' && (
+      {showContent && viewMode === 'grid' && (
         <div className={styles.content}>
           <CandidatesGrid candidates={candidates} />
+          <Pagination {...paginationProps} />
         </div>
       )}
 
-      {!loading && !error && candidates.length > 0 && viewMode === 'list' && (
+      {showContent && viewMode === 'list' && (
         <div className={styles.content}>
-          <p className={styles.state}>List view — coming soon.</p>
+          <CandidatesList candidates={candidates} />
+          <Pagination {...paginationProps} />
         </div>
       )}
     </div>

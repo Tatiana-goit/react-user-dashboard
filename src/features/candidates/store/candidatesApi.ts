@@ -16,18 +16,11 @@ function formatActivity(days: number): string {
   return `${Math.floor(days / 365)} years ago`
 }
 
-function mapUser(u: typeof rawUsers[number], index: number): Candidate {
+function mapUser(u: typeof rawUsers[number]): Candidate {
   return {
-    id:           index + 1,
-    name:         u.fullName,
-    status:       STATUS_MAP[u.status] ?? 'Applied',
-    avatarUrl:    u.profilePictureId,
-    label:        'Label',
-    rating:       Math.min(5, Math.max(1, Math.round(u.rating))),
-    applications: u.applicationCount,
-    messages:     u.talentPoolCount,
-    stars:        Math.round(u.humatch / 20),
-    location:     u.city,
+    ...u,
+    status: STATUS_MAP[u.status] ?? 'Applied',
+    stars: u.talentPoolCount,
     lastActivity: formatActivity(u.latestActivity),
   }
 }
@@ -35,8 +28,6 @@ function mapUser(u: typeof rawUsers[number], index: number): Candidate {
 // Simulates an async API call — replace with real fetch when backend is available
 export function fetchCandidatesFromApi(): Promise<Candidate[]> {
   return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(rawUsers.map(mapUser))
-    }, 800)
+    setTimeout(() => resolve(rawUsers.map(mapUser)), 800)
   })
 }

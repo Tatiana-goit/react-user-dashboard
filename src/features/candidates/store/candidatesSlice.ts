@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { fetchCandidatesFromApi } from './candidatesApi'
-import type { Candidate, ViewMode } from '../../types/candidate'
+import type { Candidate, ViewMode } from '../../../types/candidate'
 
 interface CandidatesState {
   items: Candidate[]

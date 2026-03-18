@@ -56,12 +56,19 @@
 }
 
 .titleBadge {
-  width: 28px;
+  min-width: 28px;
   height: 28px;
+  padding: 0 6px;
   border-radius: 50%;
   background: #5ecfa0;
   border: 2px solid rgba(255, 255, 255, 0.3);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
 }
 
 /* Nav tabs */
