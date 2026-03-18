@@ -1,0 +1,185 @@
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Top gradient section ── */
+.cardTop {
+  background: linear-gradient(160deg, #4a8f6d 0%, #1a3b27 100%);
+  padding: 12px 12px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-height: 160px;
+}
+
+.topRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border-radius: 20px;
+  border: 1px solid;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.topActions {
+  display: flex;
+  gap: 4px;
+}
+
+.actionBtn {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+/* Avatar — sits at the bottom of the green section, half-overlapping the white section */
+.avatarWrap {
+  margin-top: auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  overflow: hidden;
+  background: #d1d5db;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatarFallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Label badge overlaps the boundary between top/bottom sections */
+.labelBadge {
+  margin-top: 8px;
+  margin-bottom: -12px;
+  padding: 4px 16px;
+  border-radius: 20px;
+  background: #2d8f5f;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  z-index: 1;
+}
+
+/* ── Bottom white section ── */
+.cardBody {
+  padding: 24px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.name {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+}
+
+.number {
+  font-weight: 400;
+  color: #9ca3af;
+}
+
+/* Star rating */
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.starFilled {
+  color: #f59e0b;
+  fill: #f59e0b;
+}
+
+.starEmpty {
+  color: #d1d5db;
+  fill: #d1d5db;
+}
+
+/* Stats row */
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.activity {
+  margin: 0;
+  font-size: 0.75rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* CTA button */
+.viewBtn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid #2d8f5f;
+  background: transparent;
+  color: #2d8f5f;
+  font-size: 0.825rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+
+  &:hover {
+    background: #2d8f5f;
+    color: #fff;
+  }
+}

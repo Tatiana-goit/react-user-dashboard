@@ -1,15 +1,19 @@
 import { Search, List, LayoutGrid, Plus } from 'lucide-react'
+import type { ViewMode } from '../../../types/candidate'
 import styles from './Toolbar.module.scss'
 
-export function Toolbar() {
+interface ToolbarProps {
+  viewMode: ViewMode
+  onViewChange: (mode: ViewMode) => void
+}
+
+export function Toolbar({ viewMode, onViewChange }: ToolbarProps) {
   return (
     <div className={styles.toolbar}>
-      {/* Left: search icon */}
       <span className={styles.search}>
         <Search size={18} strokeWidth={2} />
       </span>
 
-      {/* Center: Active / Archived status tabs */}
       <div className={styles.statusTabs}>
         <div className={`${styles.statusTab} ${styles.statusTabActive}`}>
           <span className={styles.statusTabText}>Active</span>
@@ -21,15 +25,24 @@ export function Toolbar() {
         </div>
       </div>
 
-      {/* Right: list / grid / add — each as a separate button */}
       <div className={styles.right}>
-        <button className={styles.iconBtn} type="button">
+        <button
+          className={`${styles.iconBtn} ${viewMode === 'list' ? styles.iconBtnActive : ''}`}
+          type="button"
+          onClick={() => onViewChange('list')}
+          aria-label="List view"
+        >
           <List size={16} strokeWidth={2} />
         </button>
-        <button className={`${styles.iconBtn} ${styles.iconBtnActive}`} type="button">
+        <button
+          className={`${styles.iconBtn} ${viewMode === 'grid' ? styles.iconBtnActive : ''}`}
+          type="button"
+          onClick={() => onViewChange('grid')}
+          aria-label="Grid view"
+        >
           <LayoutGrid size={16} strokeWidth={2} />
         </button>
-        <button className={styles.iconBtn} type="button">
+        <button className={styles.iconBtn} type="button" aria-label="Add candidate">
           <Plus size={18} strokeWidth={2} />
         </button>
       </div>

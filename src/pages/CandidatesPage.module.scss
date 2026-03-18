@@ -1,16 +1,14 @@
 .page {
-  padding: 2rem;
-  max-width: 960px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
-.heading {
-  margin: 0 0 1rem;
-  font-size: 1.75rem;
-  line-height: 1.2;
+.content {
+  padding: 1.5rem 2rem;
 }
 
-.subtext {
-  margin: 0;
-  color: rgb(95 95 95);
+.state {
+  padding: 3rem 2rem;
+  color: #6b7280;
+  font-size: 0.9rem;
 }

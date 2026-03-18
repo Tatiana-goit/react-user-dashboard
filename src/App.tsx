@@ -1,10 +1,11 @@
 
 import { AppLayout } from './components/layout/AppLayout/AppLayout'
+import { CandidatesPage } from './pages/CandidatesPage'
 
 function App() {
   return (
     <AppLayout>
-      <p>Content area</p>
+      <CandidatesPage />
     </AppLayout>
   )
 }
