@@ -1,3 +1,4 @@
+import { RefreshCw, Hexagon, Grid2X2, Check, BellDot } from 'lucide-react'
 import styles from './Header.module.scss'
 
 interface HeaderProps {
@@ -9,13 +10,13 @@ export function Header({ count }: HeaderProps) {
     <header className={styles.header}>
       <div className={styles.topBar}>
         <span className={styles.breadcrumbLabel}>Candidates</span>
-        {/* Action buttons — placeholder icons, not implemented */}
+        {/* Action buttons — decorative, navigation not in scope */}
         <div className={styles.actions}>
-          <div className={styles.actionBtn} />
-          <div className={styles.actionBtn} />
-          <div className={styles.actionBtn} />
-          <div className={styles.actionBtn} />
-          <div className={styles.actionBtn} />
+          <button className={styles.actionBtn} aria-label="Sync"><RefreshCw size={15} /></button>
+          <button className={styles.actionBtn} aria-label="Stages"><Hexagon size={15} /></button>
+          <button className={styles.actionBtn} aria-label="Grid"><Grid2X2 size={15} /></button>
+          <button className={styles.actionBtn} aria-label="Approve"><Check size={15} /></button>
+          <button className={styles.actionBtn} aria-label="Notifications"><BellDot size={15} /></button>
         </div>
       </div>
 

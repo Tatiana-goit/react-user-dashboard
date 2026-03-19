@@ -15,7 +15,7 @@ const COLUMNS = [
   { label: 'Job & Talent pool', sortable: true },
   { label: 'Sourced by', sortable: true },
   { label: 'Last activity', sortable: true },
-  { label: '', sortable: false },
+  { label: 'Actions', sortable: false },
 ]
 
 export function CandidatesList({ candidates }: CandidatesListProps) {

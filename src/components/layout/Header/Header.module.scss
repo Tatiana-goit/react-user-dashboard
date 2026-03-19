@@ -18,7 +18,7 @@
 .breadcrumbLabel {
   font-size: 0.7rem;
   font-weight: 500;
-  color: #fff;
+  color: var(--color-white);
   opacity: 0.75;
 }
 
@@ -31,11 +31,18 @@
   width: 28px;
   height: 28px;
   border-radius: 8px;
+  border: none;
   background: rgba(255, 255, 255, 0.12);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  transition: background 0.15s;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.22);
   }
 }
 
@@ -49,7 +56,7 @@
 .titleText {
   font-size: 2rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-white);
   line-height: 1;
 }
 
@@ -66,7 +73,7 @@
   justify-content: center;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .nav {
@@ -84,7 +91,7 @@
 }
 
 .navItemActive {
-  color: #fff;
+  color: var(--color-white);
   font-weight: 600;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid var(--color-white);
 }

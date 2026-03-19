@@ -1,12 +1,13 @@
 .sidebar {
   width: 72px;
-  min-height: 100vh;
+  height: 100vh;
   background: var(--color-bg-white);
   border-right: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .top {
@@ -35,40 +36,53 @@
   padding-bottom: 32px;
 }
 
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--color-primary-dark);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+}
+
 .icon {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  border: 1.5px solid var(--color-border-light);
+  border: none;
   background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  transition: background 0.15s, color 0.15s;
+
+  &:hover {
+    background: var(--color-bg-subtle);
+    color: var(--color-text-muted);
+  }
+}
+
+.iconActive {
+  background: var(--color-avatar-light);
+  color: var(--color-primary);
 }
 
 .iconAdd {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   border: none;
   background: var(--color-avatar-light);
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-primary);
+  flex-shrink: 0;
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    background: var(--color-primary);
-    border-radius: 2px;
-  }
-
-  &::before {
-    width: 12px;
-    height: 2px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  &::after {
-    width: 2px;
-    height: 12px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
 }

@@ -17,7 +17,7 @@ npm test
 
 ## Stack
 
-React · TypeScript · Redux Toolkit · SCSS Modules · Jest · React Testing Library
+React · TypeScript · Redux Toolkit · SCSS Modules · Jest · React Testing Library · lucide-react
 
 ## Assumptions
 
