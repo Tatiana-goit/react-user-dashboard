@@ -1,8 +1,8 @@
 .sidebar {
   width: 72px;
   min-height: 100vh;
-  background: #fff;
-  border-right: 1px solid #eef0f3;
+  background: var(--color-bg-white);
+  border-right: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,26 +35,24 @@
   padding-bottom: 32px;
 }
 
-/* Base icon: small thin outlined rectangle */
 .icon {
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  border: 1.5px solid #d1d5db;
+  border: 1.5px solid var(--color-border-light);
   background: transparent;
 }
 
 .iconAdd {
   border: none;
-  background: #e6f5ee;
+  background: var(--color-avatar-light);
   position: relative;
 
-  /* simple "+" hint via box-shadow cross */
   &::before,
   &::after {
     content: '';
     position: absolute;
-    background: #2d8f5f;
+    background: var(--color-primary);
     border-radius: 2px;
   }
 

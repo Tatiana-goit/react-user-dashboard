@@ -20,16 +20,17 @@ import type { ViewMode } from '../types/candidate'
 import styles from './CandidatesPage.module.scss'
 
 export function CandidatesPage() {
-  const dispatch     = useAppDispatch()
-  const loading      = useAppSelector(selectLoading)
-  const error        = useAppSelector(selectError)
-  const viewMode     = useAppSelector(selectViewMode)
-  const currentPage  = useAppSelector(selectCurrentPage)
-  const totalPages   = useAppSelector(selectTotalPages)
+  const dispatch = useAppDispatch()
+  const loading = useAppSelector(selectLoading)
+  const error = useAppSelector(selectError)
+  const viewMode = useAppSelector(selectViewMode)
+  const currentPage = useAppSelector(selectCurrentPage)
+  const totalPages = useAppSelector(selectTotalPages)
   const itemsPerPage = useAppSelector(selectItemsPerPage)
   const allCandidates = useAppSelector(selectAllCandidates)
-  const candidates   = useAppSelector(selectPaginatedCandidates)
+  const candidates = useAppSelector(selectPaginatedCandidates)
 
+  // Fetch candidates once on mount — polling and refetch are out of scope
   useEffect(() => {
     dispatch(fetchCandidates())
   }, [dispatch])
@@ -43,6 +44,7 @@ export function CandidatesPage() {
   }
 
   const showContent = !loading && !error && candidates.length > 0
+  const showEmpty = !loading && !error && candidates.length === 0
 
   const paginationProps = {
     currentPage,
@@ -60,20 +62,16 @@ export function CandidatesPage() {
 
       {!loading && error && <div className={styles.state}>Error: {error}</div>}
 
-      {!loading && !error && candidates.length === 0 && (
+      {showEmpty && (
         <div className={styles.state}>No candidates found.</div>
       )}
 
-      {showContent && viewMode === 'grid' && (
+      {showContent && (
         <div className={styles.content}>
-          <CandidatesGrid candidates={candidates} />
-          <Pagination {...paginationProps} />
-        </div>
-      )}
-
-      {showContent && viewMode === 'list' && (
-        <div className={styles.content}>
-          <CandidatesList candidates={candidates} />
+          {viewMode === 'grid'
+            ? <CandidatesGrid candidates={candidates} />
+            : <CandidatesList candidates={candidates} />
+          }
           <Pagination {...paginationProps} />
         </div>
       )}

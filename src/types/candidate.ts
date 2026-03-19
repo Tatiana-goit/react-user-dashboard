@@ -18,7 +18,6 @@ export interface Candidate {
   rating: number
   applicationCount: number
   talentPoolCount: number
-  stars: number
   city: string
   lastActivity: string
 }

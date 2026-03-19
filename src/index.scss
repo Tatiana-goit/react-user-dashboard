@@ -1,6 +1,28 @@
-/* Minimal global reset and base styles */
+/* Design tokens — single source of truth for colors used across SCSS modules */
+:root {
+  --color-primary: #2d8f5f;
+  --color-primary-mid: #4a8f6d;
+  --color-primary-dark: #1a3b27;
+  --color-primary-light: #5ecfa0;
 
-/* Box-sizing reset for easier layout calculations */
+  --color-text: #111827;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6b7280;
+  --color-text-placeholder: #9ca3af;
+
+  --color-border: #e5e7eb;
+  --color-border-light: #d1d5db;
+  --color-bg-white: #fff;
+  --color-bg-subtle: #f3f4f6;
+  --color-bg-hover: #f9fafb;
+
+  --color-primary-hover: #236b48;
+  --color-avatar-bg: #c9d4ce;
+  --color-avatar-light: #d1fae5;
+
+  --color-star: #f59e0b;
+}
+
 *,
 *::before,
 *::after {
@@ -17,8 +39,8 @@ body {
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.5;
-  background: #fff;
-  color: #000;
+  background: var(--color-bg-white);
+  color: var(--color-text);
 }
 
 #root {

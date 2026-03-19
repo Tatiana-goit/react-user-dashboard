@@ -11,7 +11,6 @@
   gap: 4px;
 }
 
-/* Previous / Next buttons */
 .prev,
 .next {
   display: inline-flex;
@@ -20,7 +19,7 @@
   padding: 6px 12px;
   border: none;
   background: transparent;
-  color: #374151;
+  color: var(--color-text-secondary);
   font-size: 0.825rem;
   font-weight: 500;
   cursor: pointer;
@@ -28,7 +27,7 @@
   transition: color 0.15s;
 
   &:hover:not(:disabled) {
-    color: #111827;
+    color: var(--color-text);
   }
 
   &:disabled {
@@ -51,22 +50,22 @@
   border-radius: 8px;
   border: 1px solid transparent;
   background: transparent;
-  color: #6b7280;
+  color: var(--color-text-muted);
   font-size: 0.825rem;
   cursor: pointer;
   transition: border-color 0.15s, color 0.15s;
 
   &:hover:not(.active) {
-    border-color: #e5e7eb;
-    color: #111827;
+    border-color: var(--color-border);
+    color: var(--color-text);
   }
 }
 
 .active {
-  border-color: #d1d5db;
-  color: #111827;
+  border-color: var(--color-border-light);
+  color: var(--color-text);
   font-weight: 600;
-  background: #fff;
+  background: var(--color-bg-white);
 }
 
 .ellipsis {
@@ -75,13 +74,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #9ca3af;
+  color: var(--color-text-placeholder);
   font-size: 0.825rem;
   user-select: none;
 }
 
 .counter {
   font-size: 0.775rem;
-  color: #9ca3af;
+  color: var(--color-text-placeholder);
   white-space: nowrap;
 }

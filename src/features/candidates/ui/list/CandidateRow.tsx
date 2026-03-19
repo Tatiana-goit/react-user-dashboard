@@ -1,27 +1,12 @@
-import { Star, Phone, Mail, Copy, Share2, Linkedin, Globe, Network } from 'lucide-react'
+import { Phone, Mail, Copy, Share2, Linkedin, Globe, Network } from 'lucide-react'
 import type { Candidate } from '../../../../types/candidate'
 import styles from './CandidateRow.module.scss'
+import { StarRating } from '../shared/StarRating'
 
 interface CandidateRowProps {
   candidate: Candidate
 }
 
-function StarRating({ value }: { value: number }) {
-  return (
-    <div className={styles.stars}>
-      {Array.from({ length: 5 }, (_, i) => {
-        if (i + 1 <= value) return <Star key={i} size={11} className={styles.starFilled} />
-        if (i < value) return (
-          <span key={i} className={styles.starHalfWrap}>
-            <Star size={11} className={styles.starEmpty} />
-            <Star size={11} className={styles.starHalf} />
-          </span>
-        )
-        return <Star key={i} size={11} className={styles.starEmpty} />
-      })}
-    </div>
-  )
-}
 
 // Country flag emoji derived from city — mock data doesn't include country code
 const CITY_FLAG: Record<string, string> = {
@@ -34,51 +19,46 @@ const CITY_FLAG: Record<string, string> = {
 const SOURCES = ['LinkedIn', 'Careersite', 'Facebook', 'Elevportalen']
 
 const SOURCE_STYLE: Record<string, string> = {
-  LinkedIn:     styles.sourceLi,
-  Careersite:   styles.sourceCs,
-  Facebook:     styles.sourceFb,
+  LinkedIn: styles.sourceLi,
+  Careersite: styles.sourceCs,
+  Facebook: styles.sourceFb,
   Elevportalen: styles.sourceEl,
 }
 
 export function CandidateRow({ candidate }: CandidateRowProps) {
-  const { fullName, profilePictureId, rating, applicationCount, stars, city, lastActivity, status } = candidate
-  const initials = fullName.charAt(0)
-  const flag     = CITY_FLAG[city] ?? '🌍'
-  const source   = SOURCES[(candidate.id - 1) % SOURCES.length]
+  const { fullName, profilePictureId, rating, applicationCount, talentPoolCount, city, lastActivity, status } = candidate
+  const flag = CITY_FLAG[city] ?? '🌍'
+  const source = SOURCES[(candidate.number - 1) % SOURCES.length]
 
   return (
     <tr className={styles.row}>
-      {/* Checkbox */}
       <td className={styles.checkCell}>
         <input type="checkbox" className={styles.checkbox} />
       </td>
 
-      {/* Candidate */}
       <td className={styles.candidateCell}>
         <div className={styles.candidateInfo}>
           <div className={styles.avatar}>
             {profilePictureId
               ? <img src={profilePictureId} alt={fullName} className={styles.avatarImg} />
-              : <span className={styles.avatarInitial}>{initials}</span>
+              : <span className={styles.avatarInitial}>{fullName.charAt(0)}</span>
             }
           </div>
           <div>
             <p className={styles.name}>
               {fullName} <span className={styles.number}>#{candidate.number}</span>
             </p>
-            <StarRating value={rating} />
+            <StarRating value={rating} size={11} />
           </div>
         </div>
       </td>
 
-      {/* Profile type */}
       <td className={styles.cell}>
         <div className={styles.tags}>
           <span className={styles.tag}>{status}</span>
         </div>
       </td>
 
-      {/* Location & area */}
       <td className={styles.cell}>
         <p className={styles.locationPrimary}>
           <span className={styles.flag}>{flag}</span>
@@ -90,19 +70,17 @@ export function CandidateRow({ candidate }: CandidateRowProps) {
         </p>
       </td>
 
-      {/* Job & Talent pool */}
       <td className={styles.cell}>
         <div className={styles.poolCounts}>
           <div className={styles.poolItem}>
             <span className={styles.poolBadgeFilled}>{applicationCount}</span>
           </div>
           <div className={styles.poolItem}>
-            <span className={styles.poolBadgeOutline}>{stars}</span>
+            <span className={styles.poolBadgeOutline}>{talentPoolCount}</span>
           </div>
         </div>
       </td>
 
-      {/* Sourced by */}
       <td className={styles.cell}>
         <span className={`${styles.sourceBadge} ${SOURCE_STYLE[source]}`}>
           {source === 'LinkedIn' ? <Linkedin size={11} /> : <Globe size={11} />}
@@ -110,12 +88,10 @@ export function CandidateRow({ candidate }: CandidateRowProps) {
         </span>
       </td>
 
-      {/* Last activity */}
       <td className={styles.cell}>
         <span className={styles.activity}>{lastActivity}</span>
       </td>
 
-      {/* Actions */}
       <td className={styles.actionsCell}>
         <div className={styles.actions}>
           <button className={styles.actionBtn} type="button" aria-label="Call"><Phone size={13} /></button>

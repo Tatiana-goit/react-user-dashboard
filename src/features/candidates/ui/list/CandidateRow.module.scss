@@ -1,13 +1,12 @@
 .row {
-  border-bottom: 1px solid #f3f4f6;
+  border-bottom: 1px solid var(--color-bg-subtle);
   transition: background 0.1s;
 
   &:hover {
-    background: #f9fafb;
+    background: var(--color-bg-hover);
   }
 }
 
-/* ── Checkbox ── */
 .checkCell {
   width: 44px;
   padding: 0 0 0 16px;
@@ -18,11 +17,10 @@
   width: 15px;
   height: 15px;
   cursor: pointer;
-  accent-color: #2d8f5f;
+  accent-color: var(--color-primary);
   border-radius: 4px;
 }
 
-/* ── Candidate ── */
 .candidateCell {
   padding: 14px 16px;
   vertical-align: middle;
@@ -39,7 +37,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: #d1fae5;
+  background: var(--color-avatar-light);
   flex-shrink: 0;
   overflow: hidden;
   display: flex;
@@ -56,44 +54,23 @@
 .avatarInitial {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #2d8f5f;
+  color: var(--color-primary);
 }
 
 .name {
   margin: 0 0 4px;
   font-size: 0.825rem;
   font-weight: 600;
-  color: #111827;
+  color: var(--color-text);
   white-space: nowrap;
 }
 
 .number {
   font-weight: 400;
-  color: #9ca3af;
+  color: var(--color-text-placeholder);
   font-size: 0.775rem;
 }
 
-.stars {
-  display: flex;
-  gap: 2px;
-}
-
-.starFilled { color: #f59e0b; fill: #f59e0b; }
-.starEmpty  { color: #e5e7eb; fill: #e5e7eb; }
-
-.starHalfWrap {
-  position: relative;
-  display: inline-flex;
-}
-
-.starHalf {
-  position: absolute;
-  color: #f59e0b;
-  fill: #f59e0b;
-  clip-path: inset(0 50% 0 0);
-}
-
-/* ── Generic cell ── */
 .cell {
   padding: 14px 16px;
   vertical-align: middle;
@@ -102,7 +79,7 @@
 .cellSecondary {
   margin: 3px 0 0;
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: var(--color-text-placeholder);
   display: flex;
   align-items: center;
   gap: 4px;
@@ -110,10 +87,9 @@
 
 .areaIcon {
   flex-shrink: 0;
-  color: #9ca3af;
+  color: var(--color-text-placeholder);
 }
 
-/* ── Profile type tags ── */
 .tags {
   display: flex;
   flex-direction: column;
@@ -125,15 +101,14 @@
   align-items: center;
   padding: 3px 9px;
   border-radius: 6px;
-  background: #f3f4f6;
+  background: var(--color-bg-subtle);
   font-size: 0.7rem;
   font-weight: 500;
-  color: #374151;
+  color: var(--color-text-secondary);
   width: fit-content;
   white-space: nowrap;
 }
 
-/* ── Location ── */
 .locationPrimary {
   display: flex;
   align-items: center;
@@ -141,7 +116,7 @@
   margin: 0;
   font-size: 0.825rem;
   font-weight: 500;
-  color: #111827;
+  color: var(--color-text);
 }
 
 .flag {
@@ -149,7 +124,6 @@
   line-height: 1;
 }
 
-/* ── Job & Talent pool ── */
 .poolCounts {
   display: flex;
   align-items: center;
@@ -167,37 +141,36 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #e5e7eb;
+  background: var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.7rem;
   font-weight: 600;
-  color: #374151;
+  color: var(--color-text-secondary);
 }
 
 .poolBadgeOutline {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1.5px solid #d1d5db;
+  border: 1.5px solid var(--color-border-light);
   background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.7rem;
   font-weight: 600;
-  color: #9ca3af;
+  color: var(--color-text-placeholder);
 }
 
-/* ── Sourced by ── */
 .sourceBadge {
   display: inline-flex;
   align-items: center;
   gap: 5px;
   padding: 5px 10px;
   border-radius: 8px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-border);
   font-size: 0.72rem;
   font-weight: 500;
   white-space: nowrap;
@@ -207,15 +180,14 @@
 .sourceCs,
 .sourceFb,
 .sourceEl {
-  color: #6b7280;
-  border-color: #e5e7eb;
-  background: #f9fafb;
+  color: var(--color-text-muted);
+  border-color: var(--color-border);
+  background: var(--color-bg-hover);
 }
 
-/* ── Last activity + actions ── */
 .activity {
   font-size: 0.75rem;
-  color: #6b7280;
+  color: var(--color-text-muted);
   white-space: nowrap;
 }
 
@@ -234,16 +206,16 @@
   width: 28px;
   height: 28px;
   border-radius: 7px;
-  border: 1px solid #e5e7eb;
-  background: #fff;
-  color: #9ca3af;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-white);
+  color: var(--color-text-placeholder);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 
   &:hover {
-    color: #374151;
-    border-color: #9ca3af;
+    color: var(--color-text-secondary);
+    border-color: var(--color-text-placeholder);
   }
 }

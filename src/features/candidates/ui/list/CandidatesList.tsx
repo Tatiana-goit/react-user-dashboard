@@ -7,14 +7,15 @@ interface CandidatesListProps {
   candidates: Candidate[]
 }
 
+// Sorting is out of scope — sortable flag renders the icon only
 const COLUMNS = [
-  { label: 'Candidate',         sortable: false },
-  { label: 'Profile type',      sortable: true  },
-  { label: 'Location & area',   sortable: true  },
-  { label: 'Job & Talent pool', sortable: true  },
-  { label: 'Sourced by',        sortable: true  },
-  { label: 'Last activity',     sortable: true  },
-  { label: '',                  sortable: false },
+  { label: 'Candidate', sortable: false },
+  { label: 'Profile type', sortable: true },
+  { label: 'Location & area', sortable: true },
+  { label: 'Job & Talent pool', sortable: true },
+  { label: 'Sourced by', sortable: true },
+  { label: 'Last activity', sortable: true },
+  { label: '', sortable: false },
 ]
 
 export function CandidatesList({ candidates }: CandidatesListProps) {

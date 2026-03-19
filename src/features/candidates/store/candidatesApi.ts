@@ -2,32 +2,37 @@ import rawUsers from '../../../data/users.json'
 import type { Candidate, CandidateStatus } from '../../../types/candidate'
 
 const STATUS_MAP: Record<string, CandidateStatus> = {
-  'status.hired':         'Contract',
-  'status.attraction':    'Clicks',
+  'status.hired': 'Contract',
+  'status.attraction': 'Clicks',
   'status.qualification': 'Interview',
-  'status.screening':     'Screening',
+  'status.screening': 'Screening',
 }
 
 function formatActivity(days: number): string {
-  if (days === 0)  return 'today'
-  if (days === 1)  return '1 day ago'
-  if (days < 30)   return `${days} days ago`
-  if (days < 365)  return `${Math.floor(days / 30)} months ago`
+  if (days === 0) return 'today'
+  if (days === 1) return '1 day ago'
+  if (days < 30) return `${days} days ago`
+  if (days < 365) return `${Math.floor(days / 30)} months ago`
   return `${Math.floor(days / 365)} years ago`
 }
 
 function mapUser(u: typeof rawUsers[number]): Candidate {
   return {
     ...u,
-    status: STATUS_MAP[u.status] ?? 'Applied',
-    stars: u.talentPoolCount,
+    status: STATUS_MAP[u.status] ?? 'Applied', // 'Applied' as fallback for unmapped statuses — not present in current data
     lastActivity: formatActivity(u.latestActivity),
   }
 }
 
 // Simulates an async API call — replace with real fetch when backend is available
 export function fetchCandidatesFromApi(): Promise<Candidate[]> {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(rawUsers.map(mapUser)), 800)
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      try {
+        resolve(rawUsers.map(mapUser))
+      } catch {
+        reject(new Error('Failed to load candidates'))
+      }
+    }, 800)
   })
 }

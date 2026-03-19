@@ -18,7 +18,6 @@ const MENU_ITEMS = [
 export function ContextMenu({ isOpen, onClose }: ContextMenuProps) {
   const ref = useRef<HTMLDivElement>(null)
 
-  // Close when clicking outside the menu
   useEffect(() => {
     if (!isOpen) return
 

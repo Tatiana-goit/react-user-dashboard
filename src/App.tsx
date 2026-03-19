@@ -1,4 +1,3 @@
-
 import { AppLayout } from './components/layout/AppLayout/AppLayout'
 import { CandidatesPage } from './pages/CandidatesPage'
 

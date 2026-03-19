@@ -1,14 +1,9 @@
-import { ReactNode } from 'react'
 import { Sidebar } from '../Sidebar/Sidebar'
 import { Header } from '../Header/Header'
 import { Footer } from '../Footer/Footer'
 import styles from './AppLayout.module.scss'
 
-interface AppLayoutProps {
-  children: ReactNode
-}
-
-export function AppLayout({ children }: AppLayoutProps) {
+export function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className={styles.layout}>
       <Sidebar />

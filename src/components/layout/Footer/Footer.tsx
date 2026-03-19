@@ -2,13 +2,14 @@ import { XCircle, ArrowRightCircle, CalendarDays, Star, Send } from 'lucide-reac
 import styles from './Footer.module.scss'
 
 const ACTIONS = [
-  { icon: XCircle,          label: 'Reject' },
+  { icon: XCircle, label: 'Reject' },
   { icon: ArrowRightCircle, label: 'Next stage' },
-  { icon: CalendarDays,     label: 'Book meeting' },
-  { icon: Star,             label: 'Review' },
-  { icon: Send,             label: 'Message' },
+  { icon: CalendarDays, label: 'Book meeting' },
+  { icon: Star, label: 'Review' },
+  { icon: Send, label: 'Message' },
 ]
 
+// Footer actions are out of scope — buttons rendered for layout purposes only
 export function Footer() {
   return (
     <footer className={styles.footer}>

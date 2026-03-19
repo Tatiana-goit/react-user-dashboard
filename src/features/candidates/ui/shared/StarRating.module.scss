@@ -1,0 +1,15 @@
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.starFilled {
+  color: var(--color-star);
+  fill: var(--color-star);
+}
+
+.starEmpty {
+  color: var(--color-border-light);
+  fill: var(--color-border-light);
+}

@@ -1,5 +1,5 @@
 .header {
-  background: linear-gradient(160deg, #4a8f6d 0%, #1a3b27 100%);
+  background: linear-gradient(160deg, var(--color-primary-mid) 0%, var(--color-primary-dark) 100%);
   height: 222px;
   flex-shrink: 0;
   display: flex;
@@ -7,7 +7,6 @@
   padding: 0 2rem;
 }
 
-/* Top bar: breadcrumb + action buttons on the same row */
 .topBar {
   height: 48px;
   display: flex;
@@ -40,7 +39,6 @@
   }
 }
 
-/* Title row */
 .titleRow {
   flex: 1;
   display: flex;
@@ -60,7 +58,7 @@
   height: 28px;
   padding: 0 6px;
   border-radius: 50%;
-  background: #5ecfa0;
+  background: var(--color-primary-light);
   border: 2px solid rgba(255, 255, 255, 0.3);
   flex-shrink: 0;
   display: flex;
@@ -71,7 +69,6 @@
   color: #fff;
 }
 
-/* Nav tabs */
 .nav {
   display: flex;
   margin: 0 -2rem;

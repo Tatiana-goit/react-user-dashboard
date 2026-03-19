@@ -1,14 +1,15 @@
-import { useAppSelector } from '../../../app/hooks'
-import { selectAllCandidates } from '../../../features/candidates/store'
 import styles from './Header.module.scss'
 
-export function Header() {
-  const count = useAppSelector(selectAllCandidates).length
+interface HeaderProps {
+  count?: number
+}
+
+export function Header({ count }: HeaderProps) {
   return (
     <header className={styles.header}>
-      {/* Top bar: breadcrumb left, action icons right */}
       <div className={styles.topBar}>
         <span className={styles.breadcrumbLabel}>Candidates</span>
+        {/* Action buttons — placeholder icons, not implemented */}
         <div className={styles.actions}>
           <div className={styles.actionBtn} />
           <div className={styles.actionBtn} />
@@ -18,7 +19,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Title */}
       <div className={styles.titleRow}>
         <span className={styles.titleText}>Candidates</span>
         {count !== undefined && (
@@ -26,7 +26,7 @@ export function Header() {
         )}
       </div>
 
-      {/* Nav tabs */}
+      {/* Job and Talentpools tabs not implemented — no data available for those views */}
       <nav className={styles.nav}>
         <span className={styles.navItem}>Job</span>
         <span className={`${styles.navItem} ${styles.navItemActive}`}>Candidates</span>

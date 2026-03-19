@@ -1,16 +1,14 @@
 .card {
   border-radius: 16px;
-  /* overflow: visible — needed so ContextMenu is not clipped by the card boundary */
-  background: #fff;
+  background: var(--color-bg-white);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-/* ── Top gradient section ── */
 .cardTop {
-  background: linear-gradient(160deg, #4a8f6d 0%, #1a3b27 100%);
+  background: linear-gradient(160deg, var(--color-primary-mid) 0%, var(--color-primary-dark) 100%);
   padding: 12px 12px 0;
   display: flex;
   flex-direction: column;
@@ -68,16 +66,15 @@
   }
 }
 
-/* Avatar sits in the lower part of the green section */
 .avatarWrap {
   margin-top: auto;
-  margin-bottom: 6px;
+  margin-bottom: -40px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
   border: 3px solid rgba(255, 255, 255, 0.7);
   overflow: hidden;
-  background: #c9d4ce;
+  background: var(--color-avatar-bg);
   flex-shrink: 0;
   position: relative;
   z-index: 2;
@@ -98,26 +95,24 @@
   font-size: 1.75rem;
   font-weight: 700;
   color: #fff;
-  background: #4a8f6d;
+  background: var(--color-primary-mid);
 }
 
-/* Label badge at the bottom edge of green section, peeks into white */
 .labelBadge {
-  margin-bottom: -13px;
   padding: 4px 16px;
   border-radius: 20px;
-  background: #2d8f5f;
+  background: var(--color-primary);
   color: #fff;
   font-size: 0.7rem;
   font-weight: 600;
   position: relative;
   z-index: 1;
+  align-self: center;
 }
 
-/* ── Bottom white section ── */
 .cardBody {
   border-radius: 0 0 16px 16px;
-  padding: 20px 16px 16px;
+  padding: 56px 16px 16px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -127,16 +122,15 @@
   margin: 0;
   font-size: 0.95rem;
   font-weight: 700;
-  color: #111827;
+  color: var(--color-text);
   text-align: center;
 }
 
 .number {
   font-weight: 400;
-  color: #9ca3af;
+  color: var(--color-text-placeholder);
 }
 
-/* Star rating */
 .stars {
   display: flex;
   justify-content: center;
@@ -144,28 +138,15 @@
 }
 
 .starFilled {
-  color: #f59e0b;
-  fill: #f59e0b;
+  color: var(--color-star);
+  fill: var(--color-star);
 }
 
 .starEmpty {
-  color: #d1d5db;
-  fill: #d1d5db;
+  color: var(--color-border-light);
+  fill: var(--color-border-light);
 }
 
-.starHalfWrap {
-  position: relative;
-  display: inline-flex;
-}
-
-.starHalf {
-  position: absolute;
-  color: #f59e0b;
-  fill: #f59e0b;
-  clip-path: inset(0 50% 0 0);
-}
-
-/* Stats row */
 .stats {
   display: flex;
   align-items: center;
@@ -179,23 +160,22 @@
   align-items: center;
   gap: 4px;
   font-size: 0.75rem;
-  color: #6b7280;
+  color: var(--color-text-muted);
 }
 
 .activity {
   margin: 0;
   font-size: 0.75rem;
-  color: #6b7280;
+  color: var(--color-text-muted);
   text-align: center;
 }
 
-/* CTA button */
 .viewBtn {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
   border: none;
-  background: #2d8f5f;
+  background: var(--color-primary);
   color: #fff;
   font-size: 0.825rem;
   font-weight: 600;
@@ -203,6 +183,6 @@
   transition: background 0.15s;
 
   &:hover {
-    background: #236b48;
+    background: var(--color-primary-hover);
   }
 }

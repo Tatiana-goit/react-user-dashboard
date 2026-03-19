@@ -11,6 +11,7 @@ interface ToolbarProps {
 export function Toolbar({ viewMode, onViewChange, activeCount }: ToolbarProps) {
   return (
     <div className={styles.toolbar}>
+      {/* Search is out of scope — icon rendered for layout purposes only */}
       <span className={styles.search}>
         <Search size={18} strokeWidth={2} />
       </span>
@@ -20,6 +21,7 @@ export function Toolbar({ viewMode, onViewChange, activeCount }: ToolbarProps) {
           <span className={styles.statusTabText}>Active</span>
           <span className={styles.statusTabCount}>{activeCount}</span>
         </div>
+        {/* Archived filter is out of scope — count hardcoded to 0, no archived data in mock */}
         <div className={styles.statusTab}>
           <span className={styles.statusTabText}>Archived</span>
           <span className={styles.statusTabCount}>0</span>
@@ -43,6 +45,7 @@ export function Toolbar({ viewMode, onViewChange, activeCount }: ToolbarProps) {
         >
           <LayoutGrid size={16} strokeWidth={2} />
         </button>
+        {/* Add candidate is out of scope — button rendered for layout purposes only */}
         <button className={styles.iconBtn} type="button" aria-label="Add candidate">
           <Plus size={18} strokeWidth={2} />
         </button>
