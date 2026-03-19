@@ -10,7 +10,7 @@ import {
   selectCurrentPage,
   selectTotalPages,
   selectItemsPerPage,
-  selectAllCandidates,
+  selectTotalCount,
   selectPaginatedCandidates,
 } from '../features/candidates/store'
 import { CandidatesGrid, CandidatesList } from '../features/candidates/ui'
@@ -27,7 +27,8 @@ export function CandidatesPage() {
   const currentPage = useAppSelector(selectCurrentPage)
   const totalPages = useAppSelector(selectTotalPages)
   const itemsPerPage = useAppSelector(selectItemsPerPage)
-  const allCandidates = useAppSelector(selectAllCandidates)
+  const totalCount = useAppSelector(selectTotalCount)
+
   const candidates = useAppSelector(selectPaginatedCandidates)
 
   // Fetch candidates once on mount — polling and refetch are out of scope
@@ -49,14 +50,14 @@ export function CandidatesPage() {
   const paginationProps = {
     currentPage,
     totalPages,
-    totalItems: allCandidates.length,
+    totalItems: totalCount,
     itemsPerPage,
     onPageChange: handlePageChange,
   }
 
   return (
     <div className={styles.page}>
-      <Toolbar viewMode={viewMode} onViewChange={handleViewChange} activeCount={allCandidates.length} />
+      <Toolbar viewMode={viewMode} onViewChange={handleViewChange} activeCount={totalCount} />
 
       {loading && <div className={styles.state}>Loading...</div>}
 

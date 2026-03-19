@@ -9,6 +9,7 @@ export const selectError = (s: RootState) => s.candidates.error
 export const selectViewMode = (s: RootState) => s.candidates.viewMode
 export const selectCurrentPage = (s: RootState) => s.candidates.currentPage
 export const selectAllCandidates = (s: RootState) => s.candidates.items
+export const selectTotalCount = (s: RootState) => s.candidates.items.length
 
 export const selectItemsPerPage = (s: RootState) =>
   ITEMS_PER_PAGE[s.candidates.viewMode]
