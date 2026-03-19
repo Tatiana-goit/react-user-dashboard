@@ -45,7 +45,7 @@ The Figma was used as the primary design reference throughout. Some aspects of t
 
 ## Tests
 
-27 tests across 4 files covering the main flows:
+27 tests across 4 files, 87% line coverage. Covers the main flows:
 
 - `CandidatesPage.test.tsx` — loading state, grid/list render, pagination, view switch, empty state
 - `selectors.test.ts` — items per page, total pages, paginated slice
