@@ -1,6 +1,6 @@
 # React User Dashboard
 
-A candidate overview page built as a React coding exercise for OpenRecruit.
+A candidate overview page with grid and list views, pagination, and Redux state management.
 
 ## Setup
 
@@ -20,6 +20,8 @@ npm test
 React · TypeScript · Redux Toolkit · SCSS Modules · Jest · React Testing Library
 
 ## Assumptions
+
+The Figma was used as the primary design reference throughout. Some aspects of the data and design required interpretation — the following decisions were made where the requirements left room for it:
 
 - Mock data is based on the provided `users.json`. 10 additional candidates were added to reach 20 total, which is enough to demonstrate pagination in both views (grid: 9/page → 3 pages, list: 10/page → 2 pages).
 - Status values in `users.json` are internal keys (e.g. `status.qualification`) mapped to display labels in `candidatesApi.ts`. Unmapped statuses fall back to `Applied`.

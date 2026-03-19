@@ -81,7 +81,7 @@ export function CandidateCard({ candidate }: CandidateCardProps) {
             <MessageSquare size={12} strokeWidth={2} /> {talentPoolCount}
           </span>
           <span className={styles.stat}>
-            <Star size={12} strokeWidth={2} /> {talentPoolCount}
+            <Star size={12} strokeWidth={2} /> {rating}
           </span>
           <span className={styles.stat}>
             <MapPin size={12} strokeWidth={2} /> {city}
