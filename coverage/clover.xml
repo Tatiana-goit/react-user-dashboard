@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1773885956105" clover="3.2.0">
+  <project timestamp="1773885956105" name="All files">
+    <metrics statements="158" coveredstatements="138" conditionals="68" coveredconditionals="44" methods="60" coveredmethods="47" elements="286" coveredelements="229" complexity="0" loc="158" ncloc="158" packages="10" files="16" classes="16"/>
+    <package name="app">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="hooks.ts" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/app/hooks.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="176" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.layout.Pagination">
+      <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
+      <file name="Pagination.tsx" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/components/layout/Pagination/Pagination.tsx">
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="6" coveredmethods="6"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="16" count="15" type="stmt"/>
+        <line num="17" count="43" type="stmt"/>
+        <line num="19" count="15" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="33" count="43" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.layout.Toolbar">
+      <metrics statements="6" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="2"/>
+      <file name="Toolbar.tsx" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/components/layout/Toolbar/Toolbar.tsx">
+        <metrics statements="6" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="22" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="features.candidates.store">
+      <metrics statements="49" coveredstatements="38" conditionals="16" coveredconditionals="3" methods="24" coveredmethods="19"/>
+      <file name="candidatesApi.ts" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/features/candidates/store/candidatesApi.ts">
+        <metrics statements="14" coveredstatements="3" conditionals="12" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+      </file>
+      <file name="candidatesSlice.ts" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/features/candidates/store/candidatesSlice.ts">
+        <metrics statements="18" coveredstatements="18" conditionals="4" coveredconditionals="3" methods="7" coveredmethods="7"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="24" count="6" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="43" count="7" type="stmt"/>
+        <line num="44" count="7" type="stmt"/>
+        <line num="47" count="7" type="stmt"/>
+        <line num="48" count="7" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="52" count="1" type="cond" truecount="3" falsecount="1"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/features/candidates/store/index.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="1" count="7" type="stmt"/>
+        <line num="2" count="7" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="selectors.ts" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/features/candidates/store/selectors.ts">
+        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="8"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="28" type="stmt"/>
+        <line num="8" count="28" type="stmt"/>
+        <line num="9" count="28" type="stmt"/>
+        <line num="10" count="56" type="stmt"/>
+        <line num="11" count="83" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="85" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="19" count="7" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="29" count="9" type="stmt"/>
+        <line num="30" count="9" type="stmt"/>
+      </file>
+    </package>
+    <package name="features.candidates.ui">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+      <file name="index.ts" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/features/candidates/ui/index.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="1" count="8" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="features.candidates.ui.grid">
+      <metrics statements="33" coveredstatements="25" conditionals="14" coveredconditionals="6" methods="10" coveredmethods="5"/>
+      <file name="CandidateCard.tsx" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/features/candidates/ui/grid/CandidateCard.tsx">
+        <metrics statements="13" coveredstatements="11" conditionals="6" coveredconditionals="4" methods="3" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="63" type="stmt"/>
+        <line num="24" count="63" type="stmt"/>
+        <line num="26" count="63" type="cond" truecount="3" falsecount="1"/>
+        <line num="29" count="63" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+      </file>
+      <file name="CandidatesGrid.tsx" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/features/candidates/ui/grid/CandidatesGrid.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
+        <line num="13" count="63" type="stmt"/>
+      </file>
+      <file name="ContextMenu.tsx" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/features/candidates/ui/grid/ContextMenu.tsx">
+        <metrics statements="15" coveredstatements="9" conditionals="8" coveredconditionals="2" methods="5" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="63" type="stmt"/>
+        <line num="21" count="63" type="stmt"/>
+        <line num="22" count="63" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="34" count="63" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="features.candidates.ui.list">
+      <metrics statements="19" coveredstatements="19" conditionals="10" coveredconditionals="8" methods="4" coveredmethods="4"/>
+      <file name="CandidateRow.tsx" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/features/candidates/ui/list/CandidateRow.tsx">
+        <metrics statements="11" coveredstatements="11" conditionals="8" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="20" type="stmt"/>
+        <line num="30" count="20" type="cond" truecount="3" falsecount="1"/>
+        <line num="31" count="20" type="stmt"/>
+        <line num="33" count="20" type="stmt"/>
+      </file>
+      <file name="CandidatesList.tsx" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/features/candidates/ui/list/CandidatesList.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="31" count="14" type="stmt"/>
+        <line num="42" count="20" type="stmt"/>
+      </file>
+    </package>
+    <package name="features.candidates.ui.shared">
+      <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <file name="StarRating.tsx" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/features/candidates/ui/shared/StarRating.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="83" type="stmt"/>
+        <line num="13" count="415" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+    <package name="pages">
+      <metrics statements="25" coveredstatements="25" conditionals="17" coveredconditionals="16" methods="4" coveredmethods="4"/>
+      <file name="CandidatesPage.tsx" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/pages/CandidatesPage.tsx">
+        <metrics statements="25" coveredstatements="25" conditionals="17" coveredconditionals="16" methods="4" coveredmethods="4"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="22" type="stmt"/>
+        <line num="24" count="22" type="stmt"/>
+        <line num="25" count="22" type="stmt"/>
+        <line num="26" count="22" type="stmt"/>
+        <line num="27" count="22" type="stmt"/>
+        <line num="28" count="22" type="stmt"/>
+        <line num="29" count="22" type="stmt"/>
+        <line num="30" count="22" type="stmt"/>
+        <line num="31" count="22" type="stmt"/>
+        <line num="34" count="22" type="stmt"/>
+        <line num="35" count="6" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="46" count="22" type="cond" truecount="3" falsecount="0"/>
+        <line num="47" count="22" type="cond" truecount="3" falsecount="0"/>
+        <line num="49" count="22" type="stmt"/>
+        <line num="57" count="22" type="stmt"/>
+      </file>
+    </package>
+    <package name="test">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="mocks.ts" path="/Users/admin/Desktop/Projects/react-user-dashboard/src/test/mocks.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="60" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

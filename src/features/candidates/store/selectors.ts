@@ -1,3 +1,4 @@
+import { createSelector } from '@reduxjs/toolkit'
 import type { RootState } from '../../../app/store'
 
 // Items per page differ by view — grid shows 9, list shows 10
@@ -12,15 +13,20 @@ export const selectAllCandidates = (s: RootState) => s.candidates.items
 export const selectItemsPerPage = (s: RootState) =>
   ITEMS_PER_PAGE[s.candidates.viewMode]
 
-export const selectTotalPages = (s: RootState) => {
-  const total = s.candidates.items.length
-  const perPage = ITEMS_PER_PAGE[s.candidates.viewMode]
-  return Math.max(1, Math.ceil(total / perPage))
-}
+export const selectTotalPages = createSelector(
+  selectAllCandidates,
+  selectItemsPerPage,
+  (items, perPage) => Math.max(1, Math.ceil(items.length / perPage))
+)
 
-export const selectPaginatedCandidates = (s: RootState) => {
-  const perPage = ITEMS_PER_PAGE[s.candidates.viewMode]
-  const page = s.candidates.currentPage
-  const start = (page - 1) * perPage
-  return s.candidates.items.slice(start, start + perPage)
-}
+// Memoized — slice returns a new array reference, so without memoization
+// react-redux would warn on every render
+export const selectPaginatedCandidates = createSelector(
+  selectAllCandidates,
+  selectItemsPerPage,
+  selectCurrentPage,
+  (items, perPage, page) => {
+    const start = (page - 1) * perPage
+    return items.slice(start, start + perPage)
+  }
+)
