@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# React User Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A candidate overview page built as a React coding exercise for OpenRecruit.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+To run tests:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm test
 ```
+
+## Stack
+
+React · TypeScript · Redux Toolkit · SCSS Modules · Jest · React Testing Library
+
+## Assumptions
+
+- Mock data is based on the provided `users.json`. 10 additional candidates were added to reach 20 total, which is enough to demonstrate pagination in both views (grid: 9/page → 3 pages, list: 10/page → 2 pages).
+- Status values in `users.json` are internal keys (e.g. `status.qualification`) mapped to display labels in `candidatesApi.ts`. Unmapped statuses fall back to `Applied`.
+- `lastActivity` is a number of days in the raw data, formatted into a human-readable string (e.g. `3 days ago`).
+- Candidate avatars fall back to the first letter of the name when no profile image is provided.
+
+## Trade-offs
+
+- Data is fetched once on mount via a simulated async Redux flow. No polling or refetch on focus — out of scope.
+- Switching views resets pagination to page 1, since grid and list have different items-per-page values and the current page may not exist in the new view.
+- Grid and list are separate presentational components rather than one combined component — keeps each layout focused and easy to change independently.
+- Derived values (paginated slice, total pages, items per page) are computed in selectors rather than stored in Redux — keeps the store minimal and the logic independently testable.
+
+## Omissions
+
+- **Sidebar** — navigation is outside the scope of this exercise; icons rendered for layout only.
+- **Add candidate / Footer actions** — require backend integration; rendered for layout only.
+- **Archived filter** — no archived candidates in the mock data; tab rendered for layout only.
+- **Sorting** — not implemented; column headers render the sort icon for layout purposes only. Would be a straightforward selector addition.
+- **Search** — not implemented; prioritised core layout and state management first. Can be added as a selector filter without Redux changes.
+
+## Tests
+
+27 tests across 4 files covering the main flows:
+
+- `CandidatesPage.test.tsx` — loading state, grid/list render, pagination, view switch, empty state
+- `selectors.test.ts` — items per page, total pages, paginated slice
+- `candidatesSlice.test.ts` — reducers, async thunk pending/fulfilled/rejected
+- `Pagination.test.tsx` — visibility, disabled states, navigation clicks, item counter
