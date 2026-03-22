@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import styles from './Sidebar.module.scss'
 
-// Sidebar icons are decorative — navigation is out of scope for this exercise
+// Sidebar is decorative — navigation, active states, and Add button are out of scope (single-page exercise, no router)
 export function Sidebar() {
   return (
     <aside className={styles.sidebar}>

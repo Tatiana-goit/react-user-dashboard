@@ -11,6 +11,10 @@ const DEFAULT_PROPS = {
 }
 
 describe('Pagination', () => {
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   // No point showing pagination when all items fit on one page
   test('renders nothing when totalPages is 1', () => {
     const { container } = render(<Pagination {...DEFAULT_PROPS} totalPages={1} />)
@@ -20,17 +24,17 @@ describe('Pagination', () => {
   // Previous must be disabled on page 1 — there is no previous page to go to
   test('disables Previous button on first page', () => {
     render(<Pagination {...DEFAULT_PROPS} currentPage={1} />)
-    expect(screen.getByText('Previous').closest('button')).toBeDisabled()
+    expect(screen.getByRole('button', { name: /previous/i })).toBeDisabled()
   })
 
   // Next must be disabled on the last page — there is no next page to go to
   test('disables Next button on last page', () => {
     render(<Pagination {...DEFAULT_PROPS} currentPage={3} totalPages={3} />)
-    expect(screen.getByText('Next').closest('button')).toBeDisabled()
+    expect(screen.getByRole('button', { name: /next/i })).toBeDisabled()
   })
 
   // Clicking a page button must call onPageChange with the correct page number
-  test('calls onPageChange with correct page on page button click', async () => {
+  test('calls onPageChange with the clicked page number', async () => {
     const onPageChange = jest.fn()
     render(<Pagination {...DEFAULT_PROPS} onPageChange={onPageChange} />)
 
@@ -40,28 +44,39 @@ describe('Pagination', () => {
   })
 
   // Clicking Previous navigates to the previous page
-  test('calls onPageChange with previous page on Previous click', async () => {
+  test('navigates to previous page when Previous is clicked', async () => {
     const onPageChange = jest.fn()
     render(<Pagination {...DEFAULT_PROPS} currentPage={2} onPageChange={onPageChange} />)
 
-    await userEvent.click(screen.getByText('Previous').closest('button')!)
+    await userEvent.click(screen.getByRole('button', { name: /previous/i }))
 
     expect(onPageChange).toHaveBeenCalledWith(1)
   })
 
   // Clicking Next navigates to the next page
-  test('calls onPageChange with next page on Next click', async () => {
+  test('navigates to next page when Next is clicked', async () => {
     const onPageChange = jest.fn()
     render(<Pagination {...DEFAULT_PROPS} currentPage={2} onPageChange={onPageChange} />)
 
-    await userEvent.click(screen.getByText('Next').closest('button')!)
+    await userEvent.click(screen.getByRole('button', { name: /next/i }))
 
     expect(onPageChange).toHaveBeenCalledWith(3)
   })
 
   // Counter shows which items are currently visible — e.g. "Showing 1–9 of 20"
-  test('shows correct item range in counter', () => {
+  test('shows correct item range on page 1', () => {
+    render(<Pagination {...DEFAULT_PROPS} currentPage={1} />)
+    expect(screen.getByText('Showing 1–9 of 20')).toBeInTheDocument()
+  })
+
+  test('shows correct item range on page 2', () => {
     render(<Pagination {...DEFAULT_PROPS} currentPage={2} />)
     expect(screen.getByText('Showing 10–18 of 20')).toBeInTheDocument()
+  })
+
+  // Last page may be partial — Math.min caps the upper bound at totalItems
+  test('shows correct item range on last partial page', () => {
+    render(<Pagination {...DEFAULT_PROPS} currentPage={3} />)
+    expect(screen.getByText('Showing 19–20 of 20')).toBeInTheDocument()
   })
 })

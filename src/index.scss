@@ -25,6 +25,7 @@
   --color-star: #f59e0b;
 }
 
+/* Minimal global reset — component styles live in *.module.scss files */
 *,
 *::before,
 *::after {

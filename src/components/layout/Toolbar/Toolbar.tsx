@@ -2,6 +2,7 @@ import { Search, List, LayoutGrid, Plus } from 'lucide-react'
 import type { ViewMode } from '../../../types/candidate'
 import styles from './Toolbar.module.scss'
 
+// Presentational — receives viewMode and handlers via props, no direct Redux access
 interface ToolbarProps {
   viewMode: ViewMode
   onViewChange: (mode: ViewMode) => void
@@ -11,12 +12,13 @@ interface ToolbarProps {
 export function Toolbar({ viewMode, onViewChange, activeCount }: ToolbarProps) {
   return (
     <div className={styles.toolbar}>
-      {/* Search is out of scope — icon rendered for layout purposes only */}
+      {/* Search not implemented — would require searchTerm in Redux and a filtered selector */}
       <span className={styles.search}>
         <Search size={18} strokeWidth={2} />
       </span>
 
       <div className={styles.statusTabs}>
+        {/* Active tab hardcoded — tab switching would require a separate filter state in Redux */}
         <div className={`${styles.statusTab} ${styles.statusTabActive}`}>
           <span className={styles.statusTabText}>Active</span>
           <span className={styles.statusTabCount}>{activeCount}</span>
@@ -45,7 +47,7 @@ export function Toolbar({ viewMode, onViewChange, activeCount }: ToolbarProps) {
         >
           <LayoutGrid size={16} strokeWidth={2} />
         </button>
-        {/* Add candidate is out of scope — button rendered for layout purposes only */}
+        {/* Add candidate not implemented — would require a form/modal and backend POST endpoint */}
         <button className={styles.iconBtn} type="button" aria-label="Add candidate">
           <Plus size={18} strokeWidth={2} />
         </button>

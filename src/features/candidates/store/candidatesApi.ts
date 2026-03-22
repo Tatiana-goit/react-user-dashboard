@@ -1,6 +1,7 @@
 import rawUsers from '../../../data/users.json'
 import type { Candidate, CandidateStatus } from '../../../types/candidate'
 
+// Maps internal status keys from mock data to display labels — keys follow 'status.X' convention from the JSON
 const STATUS_MAP: Record<string, CandidateStatus> = {
   'status.hired': 'Contract',
   'status.attraction': 'Clicks',
@@ -8,6 +9,7 @@ const STATUS_MAP: Record<string, CandidateStatus> = {
   'status.screening': 'Screening',
 }
 
+// Kept local to this file — only used during data mapping, not a shared utility
 function formatActivity(days: number): string {
   if (days === 0) return 'today'
   if (days === 1) return '1 day ago'
@@ -33,6 +35,6 @@ export function fetchCandidatesFromApi(): Promise<Candidate[]> {
       } catch {
         reject(new Error('Failed to load candidates'))
       }
-    }, 800)
+    }, 800) // 800ms simulates network latency — makes loading state visible during development
   })
 }

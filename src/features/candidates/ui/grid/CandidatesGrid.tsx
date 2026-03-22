@@ -2,6 +2,7 @@ import { CandidateCard } from './CandidateCard'
 import styles from './CandidatesGrid.module.scss'
 import type { Candidate } from '../../../../types/candidate'
 
+// Renders whatever candidates it receives — page size is decided upstream
 interface CandidatesGridProps {
   candidates: Candidate[]
 }

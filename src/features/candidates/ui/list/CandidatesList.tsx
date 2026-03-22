@@ -3,6 +3,7 @@ import { CandidateRow } from './CandidateRow'
 import type { Candidate } from '../../../../types/candidate'
 import styles from './CandidatesList.module.scss'
 
+// Renders whatever candidates it receives — page size (10 per page) is decided upstream
 interface CandidatesListProps {
   candidates: Candidate[]
 }
@@ -25,7 +26,7 @@ export function CandidatesList({ candidates }: CandidatesListProps) {
         <thead>
           <tr className={styles.headerRow}>
             <th className={styles.checkTh}>
-              <input type="checkbox" className={styles.checkbox} />
+              <input type="checkbox" className={styles.checkbox} /> {/* Select-all — decorative, bulk selection not implemented */}
             </th>
             {COLUMNS.map(({ label, sortable }) => (
               <th key={label} className={styles.th}>

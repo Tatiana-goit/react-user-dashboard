@@ -9,7 +9,7 @@ const ACTIONS = [
   { icon: Send, label: 'Message' },
 ]
 
-// Footer actions are out of scope — buttons rendered for layout purposes only
+// Footer actions are out of scope — would require backend integration (stage transitions, messaging, calendar)
 export function Footer() {
   return (
     <footer className={styles.footer}>

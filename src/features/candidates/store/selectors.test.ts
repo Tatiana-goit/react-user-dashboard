@@ -26,20 +26,26 @@ describe('selectors', () => {
       expect(selectItemsPerPage(makeState({ viewMode: 'grid' }))).toBe(9)
     })
 
+    // List returns 10 — wider rows fit more data per line, fewer pages needed vs grid
     test('returns 10 for list view', () => {
       expect(selectItemsPerPage(makeState({ viewMode: 'list' }))).toBe(10)
     })
   })
 
   describe('selectTotalPages', () => {
-    // 20 items / 9 per page = 2.22 → ceil → 3
+    // ceil() ensures the last partial page is counted — 2.22 rounds up to 3, not down to 2
     test('returns 3 pages for 20 candidates in grid view', () => {
       expect(selectTotalPages(makeState({ viewMode: 'grid' }))).toBe(3)
     })
 
-    // 20 items / 10 per page = 2
+    // List fits more items per page — fewer total pages than grid for the same dataset
     test('returns 2 pages for 20 candidates in list view', () => {
       expect(selectTotalPages(makeState({ viewMode: 'list' }))).toBe(2)
+    })
+
+    // Exactly 9 items fills one page precisely — no partial page, Pagination self-hides
+    test('returns 1 for exactly 9 items in grid view', () => {
+      expect(selectTotalPages(makeState({ items: MOCK_CANDIDATES.slice(0, 9) }))).toBe(1)
     })
 
     // Math.max(1, ...) prevents 0 — Pagination renders null when totalPages <= 1
@@ -57,11 +63,12 @@ describe('selectors', () => {
       expect(result[8].fullName).toBe('Candidate 9')
     })
 
-    // Page 2 in grid — slice starts at index 9 (item 10)
+    // Page 2 in grid — slice starts at index 9 (item 10) and ends at index 17 (item 18)
     test('returns candidates starting from 10 on page 2 in grid view', () => {
       const result = selectPaginatedCandidates(makeState({ viewMode: 'grid', currentPage: 2 }))
       expect(result).toHaveLength(9)
       expect(result[0].fullName).toBe('Candidate 10')
+      expect(result[8].fullName).toBe('Candidate 18')
     })
 
     // List view uses a different page size — verifies the slice recalculates correctly
@@ -69,6 +76,7 @@ describe('selectors', () => {
       const result = selectPaginatedCandidates(makeState({ viewMode: 'list', currentPage: 1 }))
       expect(result).toHaveLength(10)
       expect(result[0].fullName).toBe('Candidate 1')
+      expect(result[9].fullName).toBe('Candidate 10')
     })
 
     // Last page may be partial — 20 items, 9 per page, page 3 has only 2 left
@@ -76,6 +84,7 @@ describe('selectors', () => {
       const result = selectPaginatedCandidates(makeState({ viewMode: 'grid', currentPage: 3 }))
       expect(result).toHaveLength(2)
       expect(result[0].fullName).toBe('Candidate 19')
+      expect(result[1].fullName).toBe('Candidate 20')
     })
   })
 })

@@ -9,6 +9,7 @@ interface CandidateCardProps {
   candidate: Candidate
 }
 
+// Fallback icons per status label — no icon spec in mock data, mapped by label string
 const STATUS_ICON: Record<string, React.ElementType> = {
   Contract: CheckCircle2,
   Interview: MessageSquare,
@@ -21,9 +22,9 @@ const STATUS_ICON: Record<string, React.ElementType> = {
 
 export function CandidateCard({ candidate }: CandidateCardProps) {
   const { fullName, status, profilePictureId, rating, applicationCount, talentPoolCount, city, lastActivity } = candidate
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false) // Local UI state — ephemeral open/close, no reason to put in Redux
 
-  const StatusIcon = STATUS_ICON[status] ?? CheckCircle2
+  const StatusIcon = STATUS_ICON[status] ?? CheckCircle2 // CheckCircle2 as fallback — status values outside the map should still render safely
 
 
   return (
@@ -35,7 +36,7 @@ export function CandidateCard({ candidate }: CandidateCardProps) {
             {status}
           </span>
           <div className={styles.topActions}>
-            {/* Bell — out of scope */}
+            {/* Bell — decorative, notification system would require backend integration */}
             <button className={styles.actionBtn} type="button" aria-label="Notifications">
               <Bell size={14} strokeWidth={2} />
             </button>
@@ -53,6 +54,7 @@ export function CandidateCard({ candidate }: CandidateCardProps) {
           </div>
         </div>
 
+        {/* profilePictureId is empty in mock data — first letter of fullName used as fallback avatar */}
         <div className={styles.avatarWrap}>
           {profilePictureId ? (
             <img className={styles.avatar} src={profilePictureId} alt={fullName} />
@@ -88,9 +90,10 @@ export function CandidateCard({ candidate }: CandidateCardProps) {
           </span>
         </div>
 
+        {/* ↑ is decorative (Figma) — lastActivity is already a formatted string from formatActivity helper */}
         <p className={styles.activity}>↑ {lastActivity}</p>
 
-        {/* View candidate — out of scope */}
+        {/* View candidate — would require routing to a candidate detail page, out of scope */}
         <button className={styles.viewBtn} type="button">
           View candidate
         </button>

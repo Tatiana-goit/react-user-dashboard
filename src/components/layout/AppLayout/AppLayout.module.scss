@@ -1,7 +1,7 @@
 .layout {
   display: flex;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* Prevents body scroll — only .content scrolls */
   background: var(--color-bg-app);
 }
 
@@ -9,7 +9,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: hidden; /* Required for .content's overflow-y: auto to work correctly */
 }
 
 .content {

@@ -27,13 +27,13 @@ const SOURCE_STYLE: Record<string, string> = {
 
 export function CandidateRow({ candidate }: CandidateRowProps) {
   const { fullName, profilePictureId, rating, applicationCount, talentPoolCount, city, lastActivity, status } = candidate
-  const flag = CITY_FLAG[city] ?? '🌍'
-  const source = SOURCES[(candidate.number - 1) % SOURCES.length]
+  const flag = CITY_FLAG[city] ?? '🌍' // 🌍 fallback for cities not in the map
+  const source = SOURCES[(candidate.number - 1) % SOURCES.length] // Deterministic cycle — number is stable per candidate
 
   return (
     <tr className={styles.row}>
       <td className={styles.checkCell}>
-        <input type="checkbox" className={styles.checkbox} />
+        <input type="checkbox" className={styles.checkbox} /> {/* Decorative — bulk selection not implemented */}
       </td>
 
       <td className={styles.candidateCell}>
@@ -66,7 +66,7 @@ export function CandidateRow({ candidate }: CandidateRowProps) {
         </p>
         <p className={styles.cellSecondary}>
           <Network size={11} className={styles.areaIcon} />
-          Text
+          Text {/* Area placeholder — no area field in mock data */}
         </p>
       </td>
 
@@ -93,6 +93,7 @@ export function CandidateRow({ candidate }: CandidateRowProps) {
       </td>
 
       <td className={styles.actionsCell}>
+        {/* Action buttons are decorative — would require backend integration (call, email, share) */}
         <div className={styles.actions}>
           <button className={styles.actionBtn} type="button" aria-label="Call"><Phone size={13} /></button>
           <button className={styles.actionBtn} type="button" aria-label="Email"><Mail size={13} /></button>

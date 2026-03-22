@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import styles from './Pagination.module.scss'
 
+// Pagination is fully controlled — no internal state, all values come from Redux via CandidatesPage
 interface PaginationProps {
   currentPage: number
   totalPages: number
@@ -10,11 +11,13 @@ interface PaginationProps {
 }
 
 export function Pagination({ currentPage, totalPages, totalItems, itemsPerPage, onPageChange }: PaginationProps) {
+  // Returns null when all items fit on one page — no point showing pagination
   if (totalPages <= 1) return null
 
+  // Derived display values — computed here since they are local to this render, not needed in Redux
   const from = (currentPage - 1) * itemsPerPage + 1
   const to = Math.min(currentPage * itemsPerPage, totalItems)
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1)
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1) // Simple page number array — no truncation/ellipsis, mock data is small enough
 
   return (
     <div className={styles.pagination}>

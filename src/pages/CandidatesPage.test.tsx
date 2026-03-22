@@ -36,7 +36,7 @@ describe('CandidatesPage', () => {
     expect(screen.getByText('Loading...')).toBeInTheDocument()
   })
 
-  // Grid view shows 9 items per page — verifies both the fetch and the pagination slice
+  // Grid view shows 9 items per page — verifies both the fetch and the paginated selector
   test('renders 9 candidates in grid view after fetch', async () => {
     renderWithStore()
     await waitFor(() => {
@@ -76,6 +76,16 @@ describe('CandidatesPage', () => {
 
     expect(screen.getByText('Candidate 10')).toBeInTheDocument()
     expect(screen.queryByText('Candidate 1')).not.toBeInTheDocument()
+  })
+
+  // Error state is a valid UI state — the error message from Redux must be displayed
+  test('shows error state when fetch fails', async () => {
+    mockFetch.mockRejectedValue(new Error('Network error'))
+    renderWithStore()
+
+    await waitFor(() => {
+      expect(screen.getByText(/Error: Network error/)).toBeInTheDocument()
+    })
   })
 
   // An empty API response is a valid state — the UI must not crash or show stale content
